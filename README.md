@@ -2,6 +2,8 @@
 
 Easy to use parsers and validators for mozambican (🇲🇿) data-type formatted strings.
 
+![https://badgen.net/npm/v/mozambique-utils](https://badgen.net/npm/v/mozambique-utils)
+
 ## Table of contents
 
 -   [Instalation and Usage](#instalation-and-usage)
