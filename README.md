@@ -2,8 +2,7 @@
 
 Easy to use parsers and validators for mozambican (🇲🇿) data-type formatted strings.
 
-![forthebadge](https://forthebadge.com/images/badges/made-with-typescript.svg)
-![npm](https://img.shields.io/npm/v/mozambique-utils?style=for-the-badge)
+[![npm](https://img.shields.io/npm/v/mozambique-utils)](https://npmjs.com/mozambique-utils)
 
 ## Table of contents
 
