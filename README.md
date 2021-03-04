@@ -41,7 +41,7 @@ This library can be loaded as a standalone script.
 ```html
 <script
 	type="text/javascript"
-	src="https://unpkg.com/mozambique-utils@1.0.0/dist/mozambique-utils.jshttps://unpkg.com/mozambique-utils@1.0.0/dist/mozambique-utils.js"
+	src="https://unpkg.com/mozambique-utils@1.0.0/dist/mozambique-utils.js"
 ></script>
 <script type="text/javascript">
 	mozambiqueUtils.isNUITValid("300010125"); //=> true
