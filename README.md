@@ -267,7 +267,7 @@ Parse any mozambican landline number. Returns:
 			name: string, // long name of the network operator.
 			shortname: string // short name of the network operator.
 		},
-        region: string // the region where the (national destination code) area code is linked to.
+        	region: string, // the region where the (national destination code) area code is linked to.
 		lineType: "mobile" // the type of the line of the number being parsed.
 	}
 }
@@ -344,7 +344,7 @@ Please use the issue tracker to report any bugs or file feature requests.
 PRs are welcome. To begin developing, do this:
 
 ```bash
-$ git clone https://github.com/kishannareshpal/mozambique-utils.git
+$ git clone https://github.com/kishannareshpal/mozambique-utils.js.git
 $ cd mozambique-utils/
 $ npm install
 ```
