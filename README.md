@@ -65,7 +65,7 @@ An object that defaults to:
 
 ```javascript
 {
-	allowedRegions: [],
+    allowedRegions: [],
     countryCode: "optional"
 }
 ```
