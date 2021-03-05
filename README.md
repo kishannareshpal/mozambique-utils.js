@@ -118,7 +118,7 @@ An object that defaults to:
 
 ```javascript
 {
-	allowedOperators: [],
+    allowedOperators: [],
     countryCode: "optional"
 }
 ```
@@ -203,14 +203,14 @@ The mobile number to check. Must be of type string and can contain dashes or spa
 ##### Examples:
 
 ```javascript
-mutils.parseMobileNumber("+258-84123456");
+mutils.parseMobileNumber("+258-841234567");
 /*
     {
         valid: true
         data: {
-            number: "+258-84123456",
-            localFormat: "84123456",
-            internationalFormat: "+25884123456",
+            number: "+258-841234567",
+            localFormat: "841234567",
+            internationalFormat: "+258841234567",
             includesCountryCode: true,
             nationalDestinationCode: "84"
             operator: {
@@ -222,14 +222,14 @@ mutils.parseMobileNumber("+258-84123456");
     }
 */
 
-mutils.parseMobileNumber("83123456");
+mutils.parseMobileNumber("831234567");
 /*
     {
         valid: true
         data: {
-            number: "83123456",
-            localFormat: "83123456",
-            internationalFormat: "+25883123456",
+            number: "831234567",
+            localFormat: "831234567",
+            internationalFormat: "+258831234567",
             includesCountryCode: false,
             nationalDestinationCode: "83"
             operator: {
