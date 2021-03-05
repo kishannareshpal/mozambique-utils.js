@@ -6,9 +6,9 @@ Easy to use parsers and validators for mozambican (🇲🇿) data-type formatted
 
 ## Table of contents
 
--   [Instalation and Usage](#instalation-and-usage)
+-   [Installation and Usage](#installation-and-usage)
     -   [NPM](#npm)
-    -   [Client-side](#client-side)
+    -   [Client-side (CDN)](#client-side)
 -   [API](#api)
     <!-- isLandlineNumberValid(number [, options]) -->
     -   [`isLandlineNumberValid`](#islandlinenumbervalidnumber--options)
@@ -18,7 +18,7 @@ Easy to use parsers and validators for mozambican (🇲🇿) data-type formatted
     -   [`parseLandlineNumber`](#parselandlinenumbernumber)
 -   [Contributing](#contributing)
 
-## Instalation and Usage
+## Installation and Usage
 
 #### NPM
 
@@ -38,11 +38,10 @@ mozambiqueUtils.isNUITValid("300010125"); //-> true
 This library can be loaded as a standalone script.
 
 ```html
-<script
-	type="text/javascript"
-	src="https://unpkg.com/mozambique-utils@1.0.0/dist/mozambique-utils.js"
-></script>
+<script type="text/javascript"
+	src="https://unpkg.com/mozambique-utils@1.0.0/dist/mozambique-utils.js"></script>
 <script type="text/javascript">
+	<!-- Usage -->
 	mozambiqueUtils.isNUITValid("300010125"); //=> true
 </script>
 ```
@@ -72,7 +71,7 @@ An object that defaults to:
 
 | Option         | Type     | Accepted value(s)                                                                                                                | Description                                                                                                                                                                                                                                                                                            |
 | -------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| allowedRegions | string[] | `tete` , `pemba`, `beira`, `chokwe`, `manica`, `xaixai`, `maputo`, `nampula`, `lichinga`, `inhambane`, `quelimane`, `vilanculos` | List of regions to limit the validation on. If passed an emtpy array, it will validate for all regions.                                                                                                                                                                                                |
+| allowedRegions | string[] | `tete` , `pemba`, `beira`, `chokwe`, `manica`, `xai-xai`, `maputo`, `nampula`, `lichinga`, `inhambane`, `quelimane`, `vilanculos` | List of regions to limit the validation on. If passed an emtpy array, it will validate for all regions.                                                                                                                                                                                                |
 | countryCode    | string   | `optional`, `required`, `off`                                                                                                    | `optional`: the country code in the number being validated is optional.<br>`required` only return true if the number includes the country code.<br>`off` only return true if the number does not include the country code.<br><br>The country code can be in either `+258` or `00258` or `258` format. |
 
 ##### Examples:
@@ -88,16 +87,16 @@ mutils.isLandlineNumberValid("25828123230"); //=> true
 mutils.isLandlineNumberValid("841234567"); //=> false
 
 mutils.isLandlineNumberValid("21201321", {
-	allowedRegions: ["beira", "tete", "chokwe"],
+	allowedRegions: ["beira", "tete", "chokwe"]
 }); //=> false
 
 mutils.isLandlineNumberValid("+25821201321", {
 	allowedRegions: ["maputo"],
-	countryCode: "required",
+	countryCode: "required"
 }); //=> true
 
 mutils.isLandlineNumberValid("+25821201321", {
-	countryCode: "off",
+	countryCode: "off"
 }); //=> false
 ```
 
@@ -212,9 +211,9 @@ mutils.parseMobileNumber("+258-841234567");
             localFormat: "841234567",
             internationalFormat: "+258841234567",
             includesCountryCode: true,
-            nationalDestinationCode: "84"
+            nationalDestinationCode: "84",
             operator: {
-                name: "Vodacom Moçambique"
+                name: "Vodacom Moçambique",
                 shortname: "Vodacom" 
             },
             lineType: "mobile"
@@ -231,9 +230,9 @@ mutils.parseMobileNumber("831234567");
             localFormat: "831234567",
             internationalFormat: "+258831234567",
             includesCountryCode: false,
-            nationalDestinationCode: "83"
+            nationalDestinationCode: "83",
             operator: {
-                name: "Moçambique Telecom, S.A."
+                name: "Moçambique Telecom, S.A.",
                 shortname: "Tmcel" 
             },
             lineType: "mobile"
@@ -244,7 +243,7 @@ mutils.parseMobileNumber("831234567");
 mutils.parseMobileNumber("8102392");
 /*
     {
-        valid: false
+        valid: false,
         data: null
     }
 */
@@ -287,18 +286,18 @@ Will throw if not of type string.
 mutils.parseLandlineNumber("+258 21 351100");
 /*
     {
-        valid: true
+        valid: true,
         data: {
             number: "+258 21 351100",
             localFormat: "21351100",
             internationalFormat: "+25821351100",
             includesCountryCode: true,
-            nationalDestinationCode: "21"
+            nationalDestinationCode: "21",
             operator: {
-                name: "Moçambique Telecom, S.A."
+                name: "Moçambique Telecom, S.A.",
                 shortname: "Tmcel" 
             },
-            region: "maputo"
+            region: "maputo",
             lineType: "landline"
         }
     }
@@ -307,18 +306,18 @@ mutils.parseLandlineNumber("+258 21 351100");
 mutils.parseLandlineNumber("29320123");
 /*
     {
-        valid: true
+        valid: true,
         data: {
             number: "29320123",
             localFormat: "29320123",
             internationalFormat: "+25829320123",
             includesCountryCode: false,
-            nationalDestinationCode: "293"
+            nationalDestinationCode: "293",
             operator: {
-                name: "Moçambique Telecom, S.A."
+                name: "Moçambique Telecom, S.A.",
                 shortname: "Tmcel" 
             },
-            region: "inhambane"
+            region: "inhambane",
             lineType: "landline"
         }
     }
@@ -327,7 +326,7 @@ mutils.parseLandlineNumber("29320123");
 mutils.parseLandlineNumber("841234567");
 /*
     {
-        valid: false
+        valid: false,
         data: null
     }
 */
