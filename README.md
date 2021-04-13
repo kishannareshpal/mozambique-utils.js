@@ -7,8 +7,8 @@ Easy to use parsers and validators for mozambican (🇲🇿) data-type formatted
 ## Table of contents
 
 -   [Installation and Usage](#installation-and-usage)
-    -   [NPM](#npm)
-    -   [Client-side (CDN)](#client-side)
+    -   [NPM](#using-npm)
+    -   [Browser (CDN)](#in-a-browser)
 -   [API](#api)
     <!-- isLandlineNumberValid(number [, options]) -->
     -   [`isLandlineNumberValid`](#islandlinenumbervalidnumber--options)
@@ -39,10 +39,10 @@ mozambiqueUtils.isNUITValid("300010125"); //-> true
 This library can be loaded as a standalone script, which will then be made available through the `mozambiqueUtils` global object.
 
 ```html
-<script src="https://unpkg.com/mozambique-utils@1.1.0/dist/mozambique-utils.js"></script>
+<script src="https://unpkg.com/mozambique-utils@1.1.1/dist/mozambique-utils.js"></script>
 <!-- 
     Or use the minified version:
-    <script src="https://unpkg.com/mozambique-utils@1.1.0/dist/mozambique-utils.min.js"></script>
+    <script src="https://unpkg.com/mozambique-utils@1.1.1/dist/mozambique-utils.min.js"></script>
 -->
 
 <script type="text/javascript">
