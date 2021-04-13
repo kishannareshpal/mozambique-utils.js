@@ -2,13 +2,14 @@ const { expect } = require("chai");
 const mu = require("../mozambique-utils");
 
 describe("#isNUITValid", () => {
-    it("should throw if the first argument (nuit) is not of type string", () => {
-        expect(() => mu.isMobileNumberValid([1234567])).to.throw();
-        expect(() => mu.isMobileNumberValid({})).to.throw();
-        expect(() => mu.isMobileNumberValid(-1)).to.throw();
-        expect(() => mu.isMobileNumberValid(function () { })).to.throw();
-        expect(() => mu.isMobileNumberValid(0.1234)).to.throw();
-        expect(() => mu.isMobileNumberValid(1234567)).to.throw();
+    it("should throw if the argument (nuit) is not of type string", () => {
+        expect(() => mu.isNUITValid([1234567])).to.throw();
+        expect(() => mu.isNUITValid({})).to.throw();
+        expect(() => mu.isNUITValid(-1)).to.throw();
+        expect(() => mu.isNUITValid(function () { })).to.throw();
+        expect(() => mu.isNUITValid(0.1234)).to.throw();
+        expect(() => mu.isNUITValid(false)).to.throw();
+        expect(() => mu.isNUITValid(1234567)).to.throw();
     })
 
     it("should return true if nuit format is valid even if it contains spaces or dashes as separators", () => {

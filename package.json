@@ -1,6 +1,6 @@
 {
   "name": "mozambique-utils",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Easy to use parsers and validators for mozambican (🇲🇿) data-type formatted strings.",
   "main": "dist/mozambique-utils.cjs.js",
   "module": "dist/mozambique-utils.esm.js",
@@ -18,7 +18,15 @@
     "javascript",
     "node",
     "mozambique",
-    "mocambique"
+    "mocambique",
+    "vodacom",
+    "tmcel",
+    "mcel",
+    "movitel",
+    "tdm",
+    "nuit",
+    "iban",
+    "mz"
   ],
   "types": "./dist/index.d.ts",
   "scripts": {

@@ -12,3 +12,6 @@ require("./lib/parseLandlineNumber");
 
 // parseLandlineNumber
 require("./lib/parseMobileNumber");
+
+// isIBANValid
+require("./lib/isIBANValid");

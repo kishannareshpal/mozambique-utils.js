@@ -14,13 +14,14 @@ Easy to use parsers and validators for mozambican (🇲🇿) data-type formatted
     -   [`isLandlineNumberValid`](#islandlinenumbervalidnumber--options)
     -   [`isMobileNumberValid`](#ismobilenumbervalidnumber--options)
     -   [`isNUITValid`](#isnuitvalidnuit)
+    -   [`isIBANValid`](#isibanvalidiban)
     -   [`parseMobileNumber`](#parsemobilenumbernumber)
     -   [`parseLandlineNumber`](#parselandlinenumbernumber)
 -   [Contributing](#contributing)
 
 ## Instalation and Usage
 
-#### NPM
+#### Using npm
 
 ```bash
 npm install mozambique-utils
@@ -33,15 +34,17 @@ const mozambiqueUtils = require("mozambique-utils"); // -> No ES6
 mozambiqueUtils.isNUITValid("300010125"); //-> true
 ```
 
-#### Client-side
+#### In a browser
 
-This library can be loaded as a standalone script.
+This library can be loaded as a standalone script, which will then be made available through the `mozambiqueUtils` global object.
 
 ```html
-<script
-	type="text/javascript"
-	src="https://unpkg.com/mozambique-utils@1.0.0/dist/mozambique-utils.js"
-></script>
+<script src="https://unpkg.com/mozambique-utils@1.1.0/dist/mozambique-utils.js"></script>
+<!-- 
+    Or use the minified version:
+    <script src="https://unpkg.com/mozambique-utils@1.1.0/dist/mozambique-utils.min.js"></script>
+-->
+
 <script type="text/javascript">
 	mozambiqueUtils.isNUITValid("300010125"); //=> true
 </script>
@@ -170,6 +173,27 @@ Will throw if not of type string.
 mutils.isNUITValid("12345678"); //=> true
 mutils.isNUITValid("1343"); //=> false
 mutils.isNUITValid("348908989092"); //=> false
+```
+
+### `isIBANValid(iban)`
+
+Check if a string is a valid mozambican formatted [International Bank Account Number - IBAN](https://en.wikipedia.org/wiki/International_Bank_Account_Number).\
+Returns `true` for a valid mozambican formatted IBAN according to the [ISO 13616](https://www.iso.org/standard/81090.html), otherwise `false`.
+
+###### iban
+
+The mozambican iban to check.\
+Must be of type string and can contain dashes or spaces.\
+Will throw if not of type string.
+
+##### Examples:
+
+```javascript
+// An example of a valid mozambican IBAN
+// MZ59000301080016367102371
+
+mutils.isIBANValid("MZ59000301080016367102371"); //=> true
+mutils.isIBANValid("GB98BARC20032669387723"); //=> false
 ```
 
 ### `parseMobileNumber(number)`
@@ -347,13 +371,16 @@ PRs are welcome. To begin developing, do this:
 $ git clone https://github.com/kishannareshpal/mozambique-utils.git
 $ cd mozambique-utils/
 $ npm install
+
+# Test
+$ npm test
 ```
 
-`npm run build` builds the library to dist, generating three files:
+`npm run build` builds the library to dist, generating three main files (and also a minified version for each one with the `*.min.js` prepended):
 
 -   `dist/mozambique-utils.cjs.js` A CommonJS bundle, suitable for use in Node.js, that requires the external dependency. This corresponds to the "main" field in package.json
 -   `dist/mozambique-utils.esm.js` an ES module bundle, suitable for use in other people's libraries and applications, that imports the external dependency. This corresponds to the "module" field in package.json
--   `dist/mozambique-utils.umd.js` a UMD build, suitable for use in any environment (including the browser, as a `<script>` tag), that includes the external dependency. This corresponds to the `"browser"` field in package.json
+-   `dist/mozambique-utils.js` a UMD build, suitable for use in any environment (including the browser, as a `<script>` tag), that includes the external dependency. This corresponds to the `"browser"` field in package.json
 
 `npm run dev` builds the library, then keeps rebuilding it whenever the source files change using [`rollup.watch`](https://rollupjs.org/guide/en/#rollupwatch).
 

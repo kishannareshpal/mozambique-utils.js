@@ -7,6 +7,7 @@ import sanitise_string from "./helper/sanitise_string";
  * is valid or not.
  * For it to be valid, it must include 9 digits.
  * 
+ * @param {string} nuit the NUIT to check
  * @returns {boolean} true if valid, otherwise false.
  */
 const isNUITValid = (nuit: string): boolean => {

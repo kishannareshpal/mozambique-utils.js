@@ -1,2 +1,2 @@
-const mzu = require('../dist/index');
+const mzu = require('../dist/mozambique-utils');
 module.exports = mzu;

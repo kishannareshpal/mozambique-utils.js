@@ -1,7 +1,7 @@
 /* ------------------------------- Number Validation Patterns ------------------------------ */
 
 /**
- * Small portion of patterns used the original number validation patterns.
+ * Small portion of patterns used by the original number validation patterns.
  */
 export const NDC_PREFIX: { [key: string]: string } = {
     mobile: "8",
@@ -30,7 +30,7 @@ export const NDC_LANDLINE: { [key: string]: string } = {
 
 /**
  * Matches any mozambican mobile phone number from any carrier/operator.
- * E.g: 8411224342 or +2588411224342 or 2588411224342 or even 002588411224342
+ * E.g: 841122434 or +258841122434 or 258841122434 or even 00258841122434
  * 
  * @constant
  * @type {RegExp}
@@ -78,7 +78,7 @@ export const VodacomNDCPattern = /^8[45]$/;
 export const TmcelNDCPattern = /^8[23]$/;
 
 /**
- * Matches Mobitel mobile National Destination Code.
+ * Matches Movitel mobile National Destination Code.
  * E.g: 86 or 87
  * 
  * @constant
@@ -95,3 +95,8 @@ export const MovitelNDCPattern = /^8[67]$/;
  * - NUIT has 9 digits.
  */
 export const NUITPattern = /^\d{9}$/;
+
+
+/* ------------------------ IBAN validation patterns ------------------------ */
+
+export const IBANPattern = /^(MZ[0-9]{2})\d{21}$/i;
