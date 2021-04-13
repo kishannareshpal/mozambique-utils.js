@@ -6,9 +6,9 @@ Easy to use parsers and validators for mozambican (🇲🇿) data-type formatted
 
 ## Table of contents
 
--   [Instalation and Usage](#instalation-and-usage)
+-   [Installation and Usage](#installation-and-usage)
     -   [NPM](#npm)
-    -   [Client-side](#client-side)
+    -   [Client-side (CDN)](#client-side)
 -   [API](#api)
     <!-- isLandlineNumberValid(number [, options]) -->
     -   [`isLandlineNumberValid`](#islandlinenumbervalidnumber--options)
@@ -19,7 +19,7 @@ Easy to use parsers and validators for mozambican (🇲🇿) data-type formatted
     -   [`parseLandlineNumber`](#parselandlinenumbernumber)
 -   [Contributing](#contributing)
 
-## Instalation and Usage
+## Installation and Usage
 
 #### Using npm
 
@@ -46,6 +46,7 @@ This library can be loaded as a standalone script, which will then be made avail
 -->
 
 <script type="text/javascript">
+	<!-- Usage -->
 	mozambiqueUtils.isNUITValid("300010125"); //=> true
 </script>
 ```
@@ -68,15 +69,15 @@ An object that defaults to:
 
 ```javascript
 {
-	allowedRegions: [],
+    allowedRegions: [],
     countryCode: "optional"
 }
 ```
 
-| Option         | Type     | Accepted value(s)                                                                                                                | Description                                                                                                                                                                                                                                                                                            |
-| -------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| allowedRegions | string[] | `tete` , `pemba`, `beira`, `chokwe`, `manica`, `xaixai`, `maputo`, `nampula`, `lichinga`, `inhambane`, `quelimane`, `vilanculos` | List of regions to limit the validation on. If passed an emtpy array, it will validate for all regions.                                                                                                                                                                                                |
-| countryCode    | string   | `optional`, `required`, `off`                                                                                                    | `optional`: the country code in the number being validated is optional.<br>`required` only return true if the number includes the country code.<br>`off` only return true if the number does not include the country code.<br><br>The country code can be in either `+258` or `00258` or `258` format. |
+| Option         | Type     | Accepted value(s)                                                                                                                 | Description                                                                                                                                                                                                                                                                                            |
+| -------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| allowedRegions | string[] | `tete` , `pemba`, `beira`, `chokwe`, `manica`, `xai-xai`, `maputo`, `nampula`, `lichinga`, `inhambane`, `quelimane`, `vilanculos` | List of regions to limit the validation on. If passed an emtpy array, it will validate for all regions.                                                                                                                                                                                                |
+| countryCode    | string   | `optional`, `required`, `off`                                                                                                     | `optional`: the country code in the number being validated is optional.<br>`required` only return true if the number includes the country code.<br>`off` only return true if the number does not include the country code.<br><br>The country code can be in either `+258` or `00258` or `258` format. |
 
 ##### Examples:
 
@@ -121,7 +122,7 @@ An object that defaults to:
 
 ```javascript
 {
-	allowedOperators: [],
+    allowedOperators: [],
     countryCode: "optional"
 }
 ```
@@ -227,18 +228,18 @@ The mobile number to check. Must be of type string and can contain dashes or spa
 ##### Examples:
 
 ```javascript
-mutils.parseMobileNumber("+258-84123456");
+mutils.parseMobileNumber("+258-841234567");
 /*
     {
         valid: true
         data: {
-            number: "+258-84123456",
-            localFormat: "84123456",
-            internationalFormat: "+25884123456",
+            number: "+258-841234567",
+            localFormat: "841234567",
+            internationalFormat: "+258841234567",
             includesCountryCode: true,
-            nationalDestinationCode: "84"
+            nationalDestinationCode: "84",
             operator: {
-                name: "Vodacom Moçambique"
+                name: "Vodacom Moçambique",
                 shortname: "Vodacom" 
             },
             lineType: "mobile"
@@ -246,18 +247,18 @@ mutils.parseMobileNumber("+258-84123456");
     }
 */
 
-mutils.parseMobileNumber("83123456");
+mutils.parseMobileNumber("831234567");
 /*
     {
         valid: true
         data: {
-            number: "83123456",
-            localFormat: "83123456",
-            internationalFormat: "+25883123456",
+            number: "831234567",
+            localFormat: "831234567",
+            internationalFormat: "+258831234567",
             includesCountryCode: false,
-            nationalDestinationCode: "83"
+            nationalDestinationCode: "83",
             operator: {
-                name: "Moçambique Telecom, S.A."
+                name: "Moçambique Telecom, S.A.",
                 shortname: "Tmcel" 
             },
             lineType: "mobile"
@@ -268,7 +269,7 @@ mutils.parseMobileNumber("83123456");
 mutils.parseMobileNumber("8102392");
 /*
     {
-        valid: false
+        valid: false,
         data: null
     }
 */
@@ -291,7 +292,7 @@ Parse any mozambican landline number. Returns:
 			name: string, // long name of the network operator.
 			shortname: string // short name of the network operator.
 		},
-        region: string // the region where the (national destination code) area code is linked to.
+        	region: string, // the region where the (national destination code) area code is linked to.
 		lineType: "mobile" // the type of the line of the number being parsed.
 	}
 }
@@ -311,18 +312,18 @@ Will throw if not of type string.
 mutils.parseLandlineNumber("+258 21 351100");
 /*
     {
-        valid: true
+        valid: true,
         data: {
             number: "+258 21 351100",
             localFormat: "21351100",
             internationalFormat: "+25821351100",
             includesCountryCode: true,
-            nationalDestinationCode: "21"
+            nationalDestinationCode: "21",
             operator: {
-                name: "Moçambique Telecom, S.A."
+                name: "Moçambique Telecom, S.A.",
                 shortname: "Tmcel" 
             },
-            region: "maputo"
+            region: "maputo",
             lineType: "landline"
         }
     }
@@ -331,18 +332,18 @@ mutils.parseLandlineNumber("+258 21 351100");
 mutils.parseLandlineNumber("29320123");
 /*
     {
-        valid: true
+        valid: true,
         data: {
             number: "29320123",
             localFormat: "29320123",
             internationalFormat: "+25829320123",
             includesCountryCode: false,
-            nationalDestinationCode: "293"
+            nationalDestinationCode: "293",
             operator: {
-                name: "Moçambique Telecom, S.A."
+                name: "Moçambique Telecom, S.A.",
                 shortname: "Tmcel" 
             },
-            region: "inhambane"
+            region: "inhambane",
             lineType: "landline"
         }
     }
@@ -351,7 +352,7 @@ mutils.parseLandlineNumber("29320123");
 mutils.parseLandlineNumber("841234567");
 /*
     {
-        valid: false
+        valid: false,
         data: null
     }
 */
@@ -368,7 +369,7 @@ Please use the issue tracker to report any bugs or file feature requests.
 PRs are welcome. To begin developing, do this:
 
 ```bash
-$ git clone https://github.com/kishannareshpal/mozambique-utils.git
+$ git clone https://github.com/kishannareshpal/mozambique-utils.js.git
 $ cd mozambique-utils/
 $ npm install
 
